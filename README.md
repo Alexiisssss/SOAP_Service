@@ -54,7 +54,7 @@ Spring Boot Веб-сервис: Клонировать проект и пере
 
 <br>
 
-**QuadraticEquationService**
+**1. QuadraticEquationService**
 
 **Описание:** QuadraticEquationService — это веб-сервис на основе Jakarta EE, предназначенный для решения квадратных уравнений. 
 
@@ -224,7 +224,7 @@ http://localhost:8083/QuadraticEquationService/QuadraticEquationService
 
 <br>
 
-**QuadraticEquationClient**
+**2. QuadraticEquationClient**
 
 **Описание проекта**
 
