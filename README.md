@@ -218,6 +218,7 @@ http://localhost:8083/QuadraticEquationService/QuadraticEquationService
 </S:Envelope>
 
 
+
 **QuadraticEquationClient**
 
 **Описание проекта**
@@ -232,11 +233,13 @@ http://localhost:8083/QuadraticEquationService/QuadraticEquationService
 
 •	Maven: Система управления проектами и сборки, используемая для управления зависимостями и сборки проекта.
 
+
 **Установка и настройка**
 
 Перед началом работы убедитесь, что сервер QuadraticEquationService, который генерирует WSDL-файл, запущен. Проверьте, что вы можете получить доступ к WSDL-файлу по следующему URL:
 
 http://localhost:8083/QuadraticEquationService/QuadraticEquationService?wsdl
+
 
 **Генерация классов из WSDL**
 
@@ -246,32 +249,55 @@ wsimport -keep -s src/main/java -p org.example.soapclient http://localhost:8083/
 
 После выполнения этой команды в папке generated-sources будет создана папка wsimport со всеми необходимыми классами. 
 
+
 **Использование Maven для автоматической генерации классов**
 
 Можно также выполнить подключение к WSDL через файл pom.xml. В pom.xml файл добавьте следующий код в секцию <build>:
 
 <build>
+ 
     <plugins>
+    
         <plugin>
+        
             <groupId>org.codehaus.mojo</groupId>
+            
             <artifactId>jaxws-maven-plugin</artifactId>
+            
             <version>2.6</version>
+            
             <executions>
+            
                 <execution>
+                
                     <goals>
+                    
                         <goal>wsimport</goal>
+                        
                     </goals>
+                    
                     <configuration>
+                    
                         <wsdlUrls>
+                        
                             <wsdlUrl>http://localhost:8083/QuadraticEquationService/QuadraticEquationService?wsdl</wsdlUrl>
+                            
                         </wsdlUrls>
+                        
                         <packageName>org.example.soapclient</packageName>
+                        
                     </configuration>
+                    
                 </execution>
+                
             </executions>
+            
         </plugin>
+        
     </plugins>
+    
 </build>
+
 
 **Установите все необходимые зависимости в pom.xml**
 
@@ -293,6 +319,7 @@ wsimport -keep -s src/main/java -p org.example.soapclient http://localhost:8083/
 
 •  JUnit 5: Библиотека для написания тестов в Java.
 
+
 **Создание классов клиента и контроллера**
 
 Создайте файл QuadraticEquationClient.java в пакете org.example.soapclient.client:	
@@ -307,6 +334,7 @@ wsimport -keep -s src/main/java -p org.example.soapclient http://localhost:8083/
 
 •	Обработка ответа, включая получение корней уравнения.
 
+
 Создайте файл CalculatorController.java в пакете org.example.soapclient.controller:
 
 Этот класс выполняет роль контроллера в приложении. Он обрабатывает HTTP-запросы от клиента и связывает их с соответствующими методами из QuadraticEquationClient. 
@@ -318,6 +346,7 @@ wsimport -keep -s src/main/java -p org.example.soapclient http://localhost:8083/
 •	Валидация входных данных (коэффициенты aaa, bbb и ccc).
 
 •	Вызов метода из QuadraticEquationClient для вычисления решения уравнения и возврат результата клиенту в формате JSON.
+
 
 **Настройка приложения**
 
@@ -337,6 +366,7 @@ server:
 
   port: 8081
 
+
 **Сборка и запуск проекта**
 
 Соберите проект, используя следующую команду:
@@ -346,6 +376,7 @@ mvn clean install
 После успешной сборки запустите приложение:
 
 mvn spring-boot:run
+
 
 **Проверка работы через Postman**
 
