@@ -187,7 +187,9 @@ http://localhost:8083/QuadraticEquationService/QuadraticEquationService
    
 </soapenv:Envelope>
 
+
 Нажмите "Send" и проверьте ответ сервиса:
+
 
 <?xml version='1.0' encoding='UTF-8'?>
 
