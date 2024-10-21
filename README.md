@@ -8,7 +8,7 @@
 
 Сервис должен возвращать ответ в формате XML:
 
-<response><formula>3x^2+4x+1=0</formula><D>0</D><x1>0</x1><x2>0</x2></response>
+&lt;response&gt;&lt;formula&gt;3x^2+4x+1=0&lt;/formula&gt;&lt;D&gt;0&lt;/D&gt;&lt;x1&gt;0&lt;/x1&gt;&lt;x2&gt;0&lt;/x2&gt;&lt;/response&gt;
 
 В случае, если дискриминант меньше нуля, должно быть создано исключение. 
 
