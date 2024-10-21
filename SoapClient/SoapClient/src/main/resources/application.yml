@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: soap-client
+logging:
+  level:
+    org.springframework.ws.client.core.WebServiceTemplate: DEBUG
+server:
+  port: 8081
+
