@@ -216,3 +216,143 @@ http://localhost:8083/QuadraticEquationService/QuadraticEquationService
     </S:Body>
     
 </S:Envelope>
+
+
+**QuadraticEquationClient**
+
+**Описание проекта**
+
+Данный проект представляет собой SOAP-клиент для решения квадратных уравнений. Он реализован с использованием следующих технологий:
+
+•	Java: Язык программирования, на котором написан проект.
+
+•	Spring Boot: Фреймворк для упрощения разработки приложений на Java.
+
+•	Jakarta EE: Платформа для разработки корпоративных приложений на Java.
+
+•	Maven: Система управления проектами и сборки, используемая для управления зависимостями и сборки проекта.
+
+**Установка и настройка**
+
+Перед началом работы убедитесь, что сервер QuadraticEquationService, который генерирует WSDL-файл, запущен. Проверьте, что вы можете получить доступ к WSDL-файлу по следующему URL:
+
+http://localhost:8083/QuadraticEquationService/QuadraticEquationService?wsdl
+
+**Генерация классов из WSDL**
+
+Для начала необходимо сгенерировать необходимые классы из WSDL-файла. Для этого выполните следующую команду:
+
+wsimport -keep -s src/main/java -p org.example.soapclient http://localhost:8083/QuadraticEquationService/QuadraticEquationService?wsdl
+
+После выполнения этой команды в папке generated-sources будет создана папка wsimport со всеми необходимыми классами. 
+
+**Использование Maven для автоматической генерации классов**
+
+Можно также выполнить подключение к WSDL через файл pom.xml. В pom.xml файл добавьте следующий код в секцию <build>:
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>jaxws-maven-plugin</artifactId>
+            <version>2.6</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>wsimport</goal>
+                    </goals>
+                    <configuration>
+                        <wsdlUrls>
+                            <wsdlUrl>http://localhost:8083/QuadraticEquationService/QuadraticEquationService?wsdl</wsdlUrl>
+                        </wsdlUrls>
+                        <packageName>org.example.soapclient</packageName>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+
+**Установите все необходимые зависимости в pom.xml**
+
+•  Spring Boot Starter Parent: Основной родительский проект для настройки Spring Boot.
+
+•  Spring Boot Starter Web: Зависимость для разработки веб-приложений на основе Spring.
+
+•  Jakarta XML Bind API: Библиотека для работы с XML в Java.
+
+•  JAX-WS API: API для разработки веб-сервисов с использованием протокола SOAP.
+
+•  JAX-WS Runtime: Реализация JAX-WS для выполнения веб-сервисов.
+
+•  JAXB Runtime: Реализация JAXB для работы с XML.
+
+•  JAX-WS Implementation: Дополнительная реализация для поддержки аннотаций JAX-WS.
+
+•  Jakarta XML WS API: Дополнительный API для работы с XML в контексте веб-сервисов.
+
+•  JUnit 5: Библиотека для написания тестов в Java.
+
+**Создание классов клиента и контроллера**
+
+Создайте файл QuadraticEquationClient.java в пакете org.example.soapclient.client:	
+
+Этот класс является клиентом SOAP, который отвечает за взаимодействие с веб-сервисом, предоставляющим метод для решения квадратных уравнений.
+
+Он использует сгенерированные классы из WSDL для формирования и отправки запросов, а также обработки ответов от сервиса. 
+
+Основные функции класса включают:
+
+•	Формирование SOAP-запроса для решения квадратного уравнения.
+
+•	Обработка ответа, включая получение корней уравнения.
+
+Создайте файл CalculatorController.java в пакете org.example.soapclient.controller:
+
+Этот класс выполняет роль контроллера в приложении. Он обрабатывает HTTP-запросы от клиента и связывает их с соответствующими методами из QuadraticEquationClient. 
+
+Основные функции класса включают:
+
+•	Обработка входящих запросов (например, GET-запросов на расчёт).
+
+•	Валидация входных данных (коэффициенты aaa, bbb и ccc).
+
+•	Вызов метода из QuadraticEquationClient для вычисления решения уравнения и возврат результата клиенту в формате JSON.
+
+**Настройка приложения**
+
+spring:
+
+  application:
+  
+    name: soap-client
+    
+logging:
+
+  level:
+  
+    org.springframework.ws.client.core.WebServiceTemplate: DEBUG
+    
+server:
+
+  port: 8081
+
+**Сборка и запуск проекта**
+
+Соберите проект, используя следующую команду:
+
+mvn clean install
+
+После успешной сборки запустите приложение:
+
+mvn spring-boot:run
+
+**Проверка работы через Postman**
+
+Убедитесь, что сервер, предоставляющий WSDL, запущен. Теперь вы можете протестировать ваше приложение через Postman, отправив GET-запрос по следующему URL:
+
+http://localhost:8081/api/calc?a=1&b=-3&c=2
+
+При успешном выполнении запроса вы получите ответ в формате JSON:
+
+{ "d": 1.0, "formula": "1.0x^2 + -3.0x + 2.0 =0", "x1": 2.0, "x2": 1.0 }
