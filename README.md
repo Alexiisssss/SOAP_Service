@@ -49,8 +49,11 @@ SOAP Сервис: Клонировать проект и перейти в ка
 Spring Boot Веб-сервис: Клонировать проект и перейти в каталог. Сборка проекта с использованием Maven. Запустить Spring Boot приложение. Проверить работу веб-сервиса, отправив GET-запрос на указанный URL.
 
 <br>
-# <u>СЕРВЕРЫ</u>
+
+## <u>СЕРВЕРЫ</u>
+
 <br>
+
 **QuadraticEquationService**
 
 **Описание:** QuadraticEquationService — это веб-сервис на основе Jakarta EE, предназначенный для решения квадратных уравнений. 
@@ -187,9 +190,11 @@ http://localhost:8083/QuadraticEquationService/QuadraticEquationService
    
 </soapenv:Envelope>
 
+<br>
 
 Нажмите "Send" и проверьте ответ сервиса:
 
+<br>
 
 <?xml version='1.0' encoding='UTF-8'?>
 
@@ -220,8 +225,6 @@ http://localhost:8083/QuadraticEquationService/QuadraticEquationService
 <br>
 
 **QuadraticEquationClient**
-
-<br>
 
 **Описание проекта**
 
