@@ -166,28 +166,17 @@ http://localhost:8083/QuadraticEquationService/QuadraticEquationService
 
 •  Вставьте SOAP-запрос:
 
-&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
-
-                 xmlns:org=&quot;http://example.org/&quot;&gt;
-                 
-   &lt;soapenv:Header/&gt;
-   
-   &lt;soapenv:Body&gt;
-   
-      &lt;org:solveQuadraticEquation&gt;
-      
-         &lt;org:a&gt;1&lt;/org:a&gt;
-         
-         &lt;org:b&gt;-3&lt;/org:b&gt;
-         
-         &lt;org:c&gt;2&lt;/org:c&gt;
-         
-      &lt;/org:solveQuadraticEquation&gt;
-      
-   &lt;/soapenv:Body&gt;
-   
-&lt;/soapenv:Envelope&gt;
-
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                 xmlns:org="http://example.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <org:solveQuadraticEquation>
+         <org:a>1</org:a>
+         <org:b>-3</org:b>
+         <org:c>2</org:c>
+      </org:solveQuadraticEquation>
+   </soapenv:Body>
+</soapenv:Envelope>
 
 
 Нажмите "Send" и проверьте ответ сервиса:
