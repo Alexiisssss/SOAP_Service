@@ -134,7 +134,7 @@ mvn clean install
 
 •	Запустите Tomcat через bin/startup.sh (для Unix) или bin/startup.bat (для Windows).
 
-•	Tomcat автоматически развернет .war файл, и сервис будет досту-пен по адресу:
+•	Tomcat автоматически развернет .war файл, и сервис будет доступен по адресу:
 
 •	http://localhost:8083/QuadraticEquationService/QuadraticEquationService
 
