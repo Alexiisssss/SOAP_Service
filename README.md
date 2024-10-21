@@ -137,7 +137,6 @@ mvn clean install
 
 Если всё прошло успешно, откроется страница с информацией о развернутом веб-сервисе.
 
- 
 **Тестирование с помощью Postman или SoapUI**
 
 1.	Тестирование с использованием SoapUI:
@@ -167,17 +166,26 @@ http://localhost:8083/QuadraticEquationService/QuadraticEquationService
 •  Вставьте SOAP-запрос:
 
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-                 xmlns:org="http://example.org/">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <org:solveQuadraticEquation>
-         <org:a>1</org:a>
-         <org:b>-3</org:b>
-         <org:c>2</org:c>
-      </org:solveQuadraticEquation>
-   </soapenv:Body>
-</soapenv:Envelope>
 
+                 xmlns:org="http://example.org/">
+                 
+   <soapenv:Header/>
+   
+   <soapenv:Body>
+   
+      <org:solveQuadraticEquation>
+      
+         <org:a>1</org:a>
+         
+         <org:b>-3</org:b>
+         
+         <org:c>2</org:c>
+         
+      </org:solveQuadraticEquation>
+      
+   </soapenv:Body>
+   
+</soapenv:Envelope>
 
 Нажмите "Send" и проверьте ответ сервиса:
 
